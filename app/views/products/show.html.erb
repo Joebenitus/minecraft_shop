@@ -2,6 +2,22 @@
 <h3><%= @product.country_of_origin %></h3>
 <h4><%= @product.cost %></h4>
 
+<% if @product.reviews.any?%>
+  <h4>Reviews: </h4>
+
+  <% @product.reviews.each do |review| %>
+    <ul>
+      <li>
+        <%= link_to review.author, product_review_path(@product, review) %>
+      </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No reviews have been posted for this product</p>
+<% end %>
+
+<p><%= link_to "Post a review", new_product_review_path(@product) %></p>
+
 <p><%= link_to "Edit", edit_product_path(@product) %></p>
 <p><%= link_to "Delete", product_path(@product),
                         :data => {:confirm => "You sure?",
