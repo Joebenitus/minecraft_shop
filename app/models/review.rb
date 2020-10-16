@@ -7,4 +7,6 @@ class Review < ApplicationRecord
   validates :product_id, presence: true
 
   validates_inclusion_of :rating, in: 1..5
+  validates :content_body, length: { in: 50..250 }
+
 end
