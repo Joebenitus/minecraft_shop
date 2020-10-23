@@ -1,11 +1,14 @@
 <h1>Joe's Minecraft Shop!</h1>
 
 <% if @most_recent.any? %>
+  <h3>Recently added:</h3>
   <ul>
     <% @most_recent.each do |product| %>
       <li><%= link_to product.name, product_path(product) %></li>
     <% end %>
   </ul>
+  <h3>Most reviewed:</h3>
+  <%= link_to @most_reviews.first.name, product_path(@most_reviews.first)%>
 <% else %>
   <p>There are no products yet.</p>
 <% end %>

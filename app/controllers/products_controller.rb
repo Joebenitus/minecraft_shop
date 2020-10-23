@@ -50,6 +50,7 @@ class ProductsController < ApplicationController
 
   def home
     @most_recent = Product.three_most_recent
+    @most_reviews = Product.most_reviews
     @products = Product.all
     render :home
   end
