@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
       redirect_to product_path(@product)
     else
       render :new
+      puts 'i am an error'
     end
   end
 
