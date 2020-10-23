@@ -10,15 +10,17 @@
   </head>
 
   <body>
-    <% if current_user %>
-      <%= current_user.email %> | <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to "Sign up", '/users/sign_up' %> | <%= link_to "Sign in", '/users/sign_in' %>
-    <% end %>
+    <div class="container">
+      <% if current_user %>
+        <%= current_user.email %> | <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to "Sign up", '/users/sign_up' %> | <%= link_to "Sign in", '/users/sign_in' %>
+      <% end %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    
-    <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+
+      <%= yield %>
+    </div>
   </body>
 </html>
