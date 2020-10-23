@@ -48,6 +48,12 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def home
+    @most_recent = Product.three_most_recent
+    @products = Product.all
+    render :home
+  end
+
 
   private
     def product_params

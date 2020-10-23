@@ -1,0 +1,12 @@
+<h1>Joe's Minecraft Shop!</h1>
+
+<% if @most_recent.any? %>
+  <ul>
+    <% @most_recent.each do |product| %>
+      <li><%= link_to product.name, product_path(product) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no products yet.</p>
+<% end %>
+<p><%= link_to "View all products", products_path %></p>
