@@ -13,7 +13,7 @@ By **Joseph Karnafel**
 * _enter the command "cd minecraft_shop"_
 * _enter the command "rake db:create"_
 * _enter the command "rake db:migrate"_
-* _enter the command "rake db:seed"_ (you man ignore this step if you would like to use the website without sample data)
+* _enter the command "rake db:seed"_ (you may ignore this step if you would like to use the website without sample data)
 * _enter the command "rails s"_
 * _finally, to visit the website, navigate to the address 'localhost:3000' in your web-browser of choice_
 
