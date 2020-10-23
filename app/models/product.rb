@@ -1,6 +1,7 @@
 class Product < ApplicationRecord
 
   scope :three_most_recent, -> { order(created_at: :desc).limit(3)}
+  scope :in_united_states, -> { where(country_of_origin: "United States") }
 
   scope :most_reviews, -> {(
     select("products.id, products.name, count(reviews.id) as reviews_count")
