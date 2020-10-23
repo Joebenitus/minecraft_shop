@@ -15,10 +15,24 @@ User.destroy_all
                 country_of_origin: Faker::Address.country)
   5.times do |review|
     Review.create!(author: Faker::FunnyName.name,
-                  content_body: Faker::Lorem.sentence(word_count: 3, supplemental: false, random_words_to_add: 4).chop,
+                  content_body: Faker::Lorem.sentence(word_count: 15, supplemental: false, random_words_to_add: 4).chop,
                   rating: rand(1..5),
                   product_id: product.id.to_i)
   end
 end
 
+america = Product.create!(name: 'Cheeseburger', cost: 20, country_of_origin: 'United States')
+5.times do |review|
+  Review.create!(author: Faker::FunnyName.name,
+                content_body: Faker::Lorem.sentence(word_count: 15, supplemental: false, random_words_to_add: 4).chop,
+                rating: rand(1..5),
+                product_id: america.id.to_i)
+  end
+
+admin = User.new({ email: 'admin@user.com',
+  password: 'admin123', password_confirmation: 'admin123'})
+admin.toggle!(:admin)
+  
 p "Created #{Product.count} products"
+p "Created #{User.count} users"
+p "Created #{Review.count} reviews"
